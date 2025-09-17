@@ -1,77 +1,35 @@
-import { useState } from 'react'
 import './App.css'
-import type { Todo } from './types/Todo'
 import Header from './components/Header'
-import TodoForm from './components/TodoForm'
-import TodoList from './components/TodoList'
-import AboutUs from './components/AboutUs'
+import { TasksPage, AboutUsPage, UserInfoPage, NotFoundPage } from './pages'
+import { useNavigation } from './hooks/useNavigation'
+import { APP_CONFIG } from './constants'
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [input, setInput] = useState('');
-  const [currentPage, setCurrentPage] = useState<'tasks' | 'about'>('tasks');
+  const { currentPage, navigateTo, navigateToNotFound, navigateToUserInfo } = useNavigation(APP_CONFIG.defaultPage);
 
-  const generateId = () => Date.now().toString() + Math.random().toString(36).substr(2, 9);
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case 'tasks':
+        return <TasksPage />;
 
-  const addTodo = () => {
-    if (input.trim() === '') return;
-    
-    const newTodo: Todo = {
-      id: generateId(),
-      text: input.trim(),
-      completed: false,
-      createdAt: new Date()
-    };
-    
-    setTodos([...todos, newTodo]);
-    setInput('');
-  };
+      case 'about':
+        return <AboutUsPage onNavigateToNotFound={navigateToNotFound} />;
 
-  const toggleTodo = (id: string) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
-  };
+      case 'userinfo':
+        return <UserInfoPage />;
 
-  const removeTodo = (id: string) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  };
+      case 'notfound':
+        return <NotFoundPage onNavigateHome={navigateToUserInfo} />;
 
-  const markAllDone = () => {
-    setTodos(todos.map(todo => ({ ...todo, completed: true })));
-  };
-
-  const markAllUndone = () => {
-    setTodos(todos.map(todo => ({ ...todo, completed: false })));
-  };
-
-  const clearCompleted = () => {
-    setTodos(todos.filter(todo => !todo.completed));
+      default:
+        return null;
+    }
   };
 
   return (
     <div className="app">
-      <Header currentPage={currentPage} onNavigate={setCurrentPage} />
-      {currentPage === 'tasks' ? (
-        <div className="container">
-          <h1 className="title">✅ My Todo List</h1>
-          <TodoForm
-            input={input}
-            onInputChange={setInput}
-            onSubmit={addTodo}
-          />
-          <TodoList
-            todos={todos}
-            onToggleTodo={toggleTodo}
-            onRemoveTodo={removeTodo}
-            onMarkAllDone={markAllDone}
-            onMarkAllUndone={markAllUndone}
-            onClearCompleted={clearCompleted}
-          />
-        </div>
-      ) : (
-        <AboutUs onNavigateToTasks={() => setCurrentPage('tasks')} />
-      )}
+      <Header currentPage={currentPage} onNavigate={navigateTo} />
+      {renderCurrentPage()}
     </div>
   );
 }

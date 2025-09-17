@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import type { Page } from '../hooks/useNavigation';
+import { APP_CONFIG } from '../constants';
 
 interface HeaderProps {
-  currentPage: 'tasks' | 'about';
-  onNavigate: (page: 'tasks' | 'about') => void;
+  currentPage: Page;
+  onNavigate: (page: Page) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleNavClick = (page: 'tasks' | 'about', e: React.MouseEvent) => {
+  const handleNavClick = (page: Page, e: React.MouseEvent) => {
     e.preventDefault();
     onNavigate(page);
     setIsMenuOpen(false);
@@ -18,10 +20,17 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         <header className="header">
             <div className="header-content">
                 <div className="logo">
-                    <h2>📋 TaskManager</h2>
+                    <h2>{APP_CONFIG.name}</h2>
                 </div>
                 <nav className="nav">
                     <div className="nav-links">
+                        <a 
+                            href="#" 
+                            className={`nav-link ${currentPage === 'userinfo' ? 'active' : ''}`}
+                            onClick={(e) => handleNavClick('userinfo', e)}
+                        >
+                            User Info
+                        </a>
                         <a 
                             href="#" 
                             className={`nav-link ${currentPage === 'tasks' ? 'active' : ''}`}
@@ -49,6 +58,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             </div>
             {isMenuOpen && (
                 <div className="mobile-menu">
+                    <a 
+                        href="#" 
+                        className={`mobile-nav-link ${currentPage === 'userinfo' ? 'active' : ''}`}
+                        onClick={(e) => handleNavClick('userinfo', e)}
+                    >
+                        User Info
+                    </a>
                     <a 
                         href="#" 
                         className={`mobile-nav-link ${currentPage === 'tasks' ? 'active' : ''}`}

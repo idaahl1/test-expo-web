@@ -6,11 +6,9 @@ A modern, responsive application built with React, TypeScript, and Vite.
 
 This section contains intentionally implemented bugs for testing and discovery purposes. Help us find them!
 
-- **👤 User Information**: First name and last name are marked as required fields but does not stop user from submitting empty
+- **👤 User Information**: Email are marked as required field but does not stop user from submitting empty
 - **👤 User Information**: Reset form does not reset all fields
 - **📖 About Page**: Broken link in button
-- **📋 Task Management**: Mark All Done does not mark all done
-
 
 ---
 ## ✨ Features

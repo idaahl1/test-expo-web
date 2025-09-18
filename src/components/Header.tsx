@@ -31,13 +31,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                         >
                             User Info
                         </a>
-                        <a 
+                        {/* <a 
                             href="#" 
                             className={`nav-link ${currentPage === 'tasks' ? 'active' : ''}`}
                             onClick={(e) => handleNavClick('tasks', e)}
                         >
                             Tasks
-                        </a>
+                        </a> */}
                         <a 
                             href="#" 
                             className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
@@ -65,13 +65,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                     >
                         User Info
                     </a>
-                    <a 
+                    {/* <a 
                         href="#" 
                         className={`mobile-nav-link ${currentPage === 'tasks' ? 'active' : ''}`}
                         onClick={(e) => handleNavClick('tasks', e)}
                     >
                         Tasks
-                    </a>
+                    </a> */}
                     <a 
                         href="#" 
                         className={`mobile-nav-link ${currentPage === 'about' ? 'active' : ''}`}

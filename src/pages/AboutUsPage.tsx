@@ -7,46 +7,47 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigateToNotFound }) => {
         <div className="about-us">
             <div className="about-content">
                 <div className="about-hero">
-                    <h1 className="about-title">About TaskManager</h1>
+                    <h1 className="about-title">About Our Application</h1>
                     <p className="about-subtitle">
-                        Simplifying productivity, one task at a time
+                        Building better digital experiences together
                     </p>
                 </div>
 
                 <div className="about-section">
-                    <h2>Our Mission</h2>
+                    <h2>Our Purpose</h2>
                     <p>
-                        At TaskManager, we believe that staying organized shouldn't be complicated.
-                        Our mission is to provide a clean, intuitive, and powerful task management
-                        experience that helps you focus on what matters most.
+                        We are dedicated to creating innovative digital solutions that make
+                        everyday tasks simpler and more efficient. Our focus is on delivering
+                        user-friendly applications that enhance productivity and provide
+                        exceptional user experiences.
                     </p>
                 </div>
 
-                                <div className="about-features">
-                    <h2>Why Choose TaskManager?</h2>
+                <div className="about-features">
+                    <h2>What We Offer</h2>
                     <div className="features-grid">
                         <div className="feature-card">
                             <div className="feature-icon">✨</div>
-                            <h3>Clean Design</h3>
-                            <p>Beautiful, intuitive interface that keeps you focused</p>
+                            <h3>Modern Design</h3>
+                            <p>Contemporary, user-centered interface design principles</p>
                         </div>
                         <div className="feature-card">
                             <div className="feature-icon">⚡</div>
-                            <h3>Lightning Fast</h3>
-                            <p>Responsive and quick, built with modern web technologies</p>
+                            <h3>High Performance</h3>
+                            <p>Optimized applications built with cutting-edge technology</p>
                         </div>
                         <div className="feature-card">
                             <div className="feature-icon">📱</div>
-                            <h3>Mobile Ready</h3>
-                            <p>Works perfectly on all devices, from desktop to mobile</p>
+                            <h3>Cross-Platform</h3>
+                            <p>Seamless experience across all devices and platforms</p>
                         </div>
 
                     </div>
                 </div>
 
                 <div className="about-cta">
-                    <h2>Want to learn more about us?</h2>
-                    <p>Discover how we can help you further.</p>
+                    <h2>Interested in learning more?</h2>
+                    <p>Explore additional information about our services and solutions.</p>
                     <button
                         className="cta-button"
                         onClick={onNavigateToNotFound}

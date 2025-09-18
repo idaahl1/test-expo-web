@@ -96,6 +96,7 @@ const UserInfoPage: React.FC = () => {
                                 value={formData.firstName}
                                 onChange={handleInputChange}
                                 className="form-input"
+                                required
                                 placeholder="Enter your first name"
                             />
                         </div>
@@ -110,6 +111,7 @@ const UserInfoPage: React.FC = () => {
                                 value={formData.lastName}
                                 onChange={handleInputChange}
                                 className="form-input"
+                                required
                                 placeholder="Enter your last name"
                             />
                         </div>
@@ -127,7 +129,6 @@ const UserInfoPage: React.FC = () => {
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 className="form-input"
-                                required
                                 placeholder="Enter your email address"
                             />
                         </div>

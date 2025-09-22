@@ -8,6 +8,11 @@ This section contains intentionally implemented bugs for testing and discovery p
 
 - **👤 User Information**: Email are marked as required field but does not stop user from submitting empty
 - **👤 User Information**: Reset form does not reset all fields
+- **👤 User Information**: Wrong place holder text in first text field
+- **👤 User Information**: Info in url after submitting
+
+- **📋 Task Management**: Mark All Done button not working as expected
+
 - **📖 About Page**: Broken link in button
 
 ---

@@ -1,8 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Todo } from '../types/Todo';
+
+const TODOS_STORAGE_KEY = 'todos';
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
+
+  // Load todos from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY);
+      if (savedTodos) {
+        const parsedTodos = JSON.parse(savedTodos);
+        // Convert date strings back to Date objects
+        const todosWithDates = parsedTodos.map((todo: any) => ({
+          ...todo,
+          createdAt: new Date(todo.createdAt)
+        }));
+        setTodos(todosWithDates);
+      }
+    } catch (error) {
+      console.error('Failed to load todos from localStorage:', error);
+    }
+  }, []);
+
+  // Save todos to localStorage whenever todos change
+  useEffect(() => {
+    try {
+      localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
+    } catch (error) {
+      console.error('Failed to save todos to localStorage:', error);
+    }
+  }, [todos]);
 
   const generateId = (): string => {
     return Date.now().toString() + Math.random().toString(36).substr(2, 9);

@@ -17,7 +17,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onRemove }) => {
       </span>
       <button 
         onClick={() => onRemove(todo.id)} 
-        className="remove-button"
+        className="btn-remove"
         aria-label={`Remove todo: ${todo.text}`}
       >
         ✕

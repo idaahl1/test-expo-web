@@ -13,15 +13,15 @@ const TodoActions: React.FC<TodoActionsProps> = ({
 }) => {
   return (
     <div className="todo-actions">
-      <button onClick={onMarkAllDone} className="action-button">
+      <button onClick={onMarkAllDone} className="btn btn-action">
         ✅ Mark All Done
       </button>
-      <button onClick={onMarkAllUndone} className="action-button">
+      <button onClick={onMarkAllUndone} className="btn btn-action">
         🔄 Mark All Undone
       </button>
       <button 
         onClick={onClearCompleted} 
-        className="action-button clear-button"
+        className="btn btn-action btn-danger"
         disabled={!hasCompletedTodos}
       >
         🗑️ Clear Completed

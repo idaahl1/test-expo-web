@@ -49,7 +49,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigateToNotFound }) => {
                     <h2>Interested in learning more?</h2>
                     <p>Explore additional information about our services and solutions.</p>
                     <button
-                        className="cta-button"
+                        className="btn btn-primary"
                         onClick={onNavigateToNotFound}
                     >
                         Read more

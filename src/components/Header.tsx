@@ -3,18 +3,18 @@ import type { Page } from '../hooks/useNavigation';
 import { APP_CONFIG } from '../constants';
 
 interface HeaderProps {
-  currentPage: Page;
-  onNavigate: (page: Page) => void;
+    currentPage: Page;
+    onNavigate: (page: Page) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleNavClick = (page: Page, e: React.MouseEvent) => {
-    e.preventDefault();
-    onNavigate(page);
-    setIsMenuOpen(false);
-  };
+    const handleNavClick = (page: Page, e: React.MouseEvent) => {
+        e.preventDefault();
+        onNavigate(page);
+        setIsMenuOpen(false);
+    };
 
     return (
         <header className="header">
@@ -24,22 +24,22 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                 </div>
                 <nav className="nav">
                     <div className="nav-links">
-                        <a 
-                            href="#" 
+                        <a
+                            href="#"
                             className={`nav-link ${currentPage === 'userinfo' ? 'active' : ''}`}
                             onClick={(e) => handleNavClick('userinfo', e)}
                         >
                             User Info
                         </a>
-                        {/* <a 
-                            href="#" 
+                        <a
+                            href="#"
                             className={`nav-link ${currentPage === 'tasks' ? 'active' : ''}`}
                             onClick={(e) => handleNavClick('tasks', e)}
                         >
                             Tasks
-                        </a> */}
-                        <a 
-                            href="#" 
+                        </a>
+                        <a
+                            href="#"
                             className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
                             onClick={(e) => handleNavClick('about', e)}
                         >
@@ -58,8 +58,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             </div>
             {isMenuOpen && (
                 <div className="mobile-menu">
-                    <a 
-                        href="#" 
+                    <a
+                        href="#"
                         className={`mobile-nav-link ${currentPage === 'userinfo' ? 'active' : ''}`}
                         onClick={(e) => handleNavClick('userinfo', e)}
                     >
@@ -72,8 +72,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                     >
                         Tasks
                     </a> */}
-                    <a 
-                        href="#" 
+                    <a
+                        href="#"
                         className={`mobile-nav-link ${currentPage === 'about' ? 'active' : ''}`}
                         onClick={(e) => handleNavClick('about', e)}
                     >

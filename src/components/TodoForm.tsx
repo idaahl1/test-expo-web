@@ -20,7 +20,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ input, onInputChange, onSubmit }) =
         className="todo-input"
         onKeyDown={e => e.key === 'Enter' && onSubmit()}
       />
-      <button type="submit" className="add-button">
+      <button type="submit" className="btn btn-primary">
         Add Todo
       </button>
     </form>

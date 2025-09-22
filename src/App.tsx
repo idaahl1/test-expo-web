@@ -1,16 +1,34 @@
-import './App.css'
 import Header from './components/Header'
 import { TasksPage, AboutUsPage, UserInfoPage, NotFoundPage } from './pages'
-import { useNavigation } from './hooks/useNavigation'
+import { useNavigation, useTodos } from './hooks'
 import { APP_CONFIG } from './constants'
 
 function App() {
   const { currentPage, navigateTo, navigateToNotFound, navigateToUserInfo } = useNavigation(APP_CONFIG.defaultPage);
+  const {
+    todos,
+    addTodo,
+    toggleTodo,
+    removeTodo,
+    markAllDone,
+    markAllUndone,
+    clearCompleted,
+  } = useTodos();
 
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'tasks':
-        return <TasksPage />;
+        return (
+          <TasksPage 
+            todos={todos}
+            addTodo={addTodo}
+            toggleTodo={toggleTodo}
+            removeTodo={removeTodo}
+            markAllDone={markAllDone}
+            markAllUndone={markAllUndone}
+            clearCompleted={clearCompleted}
+          />
+        );
 
       case 'about':
         return <AboutUsPage onNavigateToNotFound={navigateToNotFound} />;

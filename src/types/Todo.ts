@@ -15,6 +15,7 @@ export interface UserInfo {
   lastName: string;
   email: string;
   phone: string;
+  personalNumber: string;
   address: string;
   city: string;
   zipCode: string;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { UserInfo } from '../types/Todo';
+import type { UserInfo } from '../types';
 
 const UserInfoPage: React.FC = () => {
     const [formData, setFormData] = useState<UserInfo>({

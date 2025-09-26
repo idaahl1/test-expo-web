@@ -32,13 +32,6 @@
   transform: translateY(-1px);
 }
 
-.task-subtitle {
-  color: var(--color-medium-gray);
-  font-size: var(--font-size-lg);
-  margin: 0;
-}
-
-
 .todo-input::placeholder {
   color: var(--color-medium-gray);
   font-size: 0.95rem;

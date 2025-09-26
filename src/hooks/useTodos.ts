@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { Todo } from '../types/Todo';
+import type { Todo } from '../types';
 
 const TODOS_STORAGE_KEY = 'todos';
 
@@ -13,7 +13,7 @@ export const useTodos = () => {
       if (savedTodos) {
         const parsedTodos = JSON.parse(savedTodos);
         // Convert date strings back to Date objects
-        const todosWithDates = parsedTodos.map((todo: any) => ({
+        const todosWithDates = parsedTodos.map((todo: Todo & { createdAt: string }) => ({
           ...todo,
           createdAt: new Date(todo.createdAt)
         }));

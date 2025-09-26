@@ -1,4 +1,4 @@
-import Header from './components/Header'
+import { Header } from './components'
 import { TasksPage, AboutUsPage, UserInfoPage, NotFoundPage } from './pages'
 import { useNavigation, useTodos } from './hooks'
 import { APP_CONFIG } from './constants'

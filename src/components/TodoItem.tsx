@@ -1,4 +1,5 @@
-import type { Todo } from '../types/Todo';
+import React from 'react';
+import type { Todo } from '../types';
 
 interface TodoItemProps {
   todo: Todo;

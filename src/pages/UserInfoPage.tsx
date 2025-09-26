@@ -7,11 +7,11 @@ const UserInfoPage: React.FC = () => {
         lastName: '',
         email: '',
         phone: '',
-        personalNumber: '',
         address: '',
         city: '',
         zipCode: '',
-        country: ''
+        country: '',
+        password: '',
     });
 
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -26,18 +26,13 @@ const UserInfoPage: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('User Info Submitted:', formData);
-        
-        // SECURITY BUG: Exposing personal number in URL!
-        // This simulates a common vulnerability where sensitive data ends up in URLs
-        if (formData.personalNumber) {
-            const buggyUrl = `/user-info?submitted=true&personalId=${encodeURIComponent(formData.personalNumber)}&firstName=${encodeURIComponent(formData.firstName)}`;
+
+        if (formData.password) {
+            const buggyUrl = `/user-info?submitted=true&password=${encodeURIComponent(formData.password)}&firstName=${encodeURIComponent(formData.firstName)}`;
             window.history.pushState({}, '', buggyUrl);
         }
-        
-        setIsSubmitted(true);
 
-        // Reset form after showing success message
+        setIsSubmitted(true);
         setTimeout(() => {
             setIsSubmitted(false);
             setFormData({
@@ -45,11 +40,11 @@ const UserInfoPage: React.FC = () => {
                 lastName: '',
                 email: '',
                 phone: '',
-                personalNumber: '',
                 address: '',
                 city: '',
                 zipCode: '',
-                country: ''
+                country: '',
+                password: '',
             });
             // Clear the buggy URL when resetting
             window.history.pushState({}, '', '/user-info');
@@ -62,11 +57,11 @@ const UserInfoPage: React.FC = () => {
             lastName: '',
             email: '',
             phone: '',
-            personalNumber: '',
             address: '',
             city: '',
             zipCode: '',
-            country: ''
+            country: '',
+            password: '',
         }));
     };
 
@@ -141,6 +136,24 @@ const UserInfoPage: React.FC = () => {
                         />
                     </div>
                     <div className="form-group">
+                        <label htmlFor="password" className="form-label">
+                            Password <span className="required-asterisk">*</span>
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                            className="form-input"
+                            required
+                            placeholder="Enter your password"
+                        />
+                    </div>
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group">
                         <label htmlFor="phone" className="form-label">Phone Number</label>
                         <input
                             type="tel"
@@ -150,21 +163,6 @@ const UserInfoPage: React.FC = () => {
                             onChange={handleInputChange}
                             className="form-input"
                             placeholder="Enter your phone number"
-                        />
-                    </div>
-                </div>
-
-                <div className="form-row">
-                    <div className="form-group">
-                        <label htmlFor="personalNumber" className="form-label">Personal Identity Number</label>
-                        <input
-                            type="text"
-                            id="personalNumber"
-                            name="personalNumber"
-                            value={formData.personalNumber}
-                            onChange={handleInputChange}
-                            className="form-input"
-                            placeholder="Enter your personal number"
                         />
                     </div>
                     <div className="form-group">

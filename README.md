@@ -1,6 +1,10 @@
 # 🪲 TestExpo
 
-A modern, responsive application built with React, TypeScript, and Vite.
+**Project Overview – Test Expo 2025**
+
+This project is designed specifically for Test Expo 2025. The goal is to intentionally introduce bugs into the system, allowing participants to identify them as part of an interactive challenge.
+
+Below is a list of currently implemented bugs:
 
 ## 🐛 Bugs
 
@@ -9,11 +13,11 @@ This section contains intentionally implemented bugs for testing and discovery p
 - **👤 User Information**: Email are marked as required field but does not stop user from submitting empty
 - **👤 User Information**: Reset form does not reset all fields
 - **👤 User Information**: Wrong place holder text in first text field
-- **👤 User Information**: Info in url after submitting
+- **👤 User Information**: Password is displayed in url after submitting
 
 - **📋 Task Management**: Mark All Done button not working as expected
 
-- **📖 About Page**: Broken link in button
+- **📖 About Page**: Broken link in Read more button
 
 ---
 ## ✨ Features

@@ -41,7 +41,6 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigateToNotFound }) => {
                             <h3>Cross-Platform</h3>
                             <p>Seamless experience across all devices and platforms</p>
                         </div>
-
                     </div>
                 </div>
 
